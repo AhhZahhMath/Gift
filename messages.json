@@ -1,0 +1,11 @@
+{
+	"appName": {
+		"message": "Proto"
+	},
+	"appDesc": {
+		"message": "GYAO!専用。"
+	},
+	"appBadgeTooltip": {
+		"message": "灰：処理中｜青：送信可｜緑：送信成功｜赤：送信失敗｜黒：非DRM"
+	}
+}
