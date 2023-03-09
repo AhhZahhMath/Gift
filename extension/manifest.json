@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+	"default_locale": "ja",
+	"name": "__MSG_appName__",
+	"version": "0.0.0",
+	"description": "__MSG_appDesc__",
+	"author": "Sasabee",
+	"homepage_url": "https://note.com/sasabee",
+	"permissions": ["alarms","scripting","storage","tabs","webRequest"],
+	"host_permissions": [
+		"https://gyao.yahoo.co.jp/episode/*",
+		"https://gyao.yahoo.co.jp/title/*",
+		"https://manifest.prod.boltdns.net/"
+	],
+	"action": {
+		"default_title": "__MSG_appBadgeTooltip__"
+	},
+	"background": {
+		"service_worker": "background.js"
+	}
+}
