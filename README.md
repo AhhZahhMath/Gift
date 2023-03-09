@@ -69,4 +69,5 @@ server.py の最終行、background.js の26行目に該当の数値がありま
 ## 作った人
 - [@AhhZahhMath (aka Sasabee)](https://note.com/sasabee)
 
-noteから金銭的なサポートをしていただけると、とても励みになります。
+noteから金銭的なサポートをしていただけると、とても励みになります。  
+[noteの記事](https://note.com/sasabee/n/n6557be19006f)の下部にサポートボタンがありますので、よろしくお願いします。
