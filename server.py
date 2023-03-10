@@ -22,7 +22,7 @@ def post(env, start_response):
 	l = d['dash'].split('=')
 	mpd = l[0]
 	token = l[1]
-	Popen(['.bat', d['title'], keys[0], mpd, token, f'{time_ns()}'[:11]])
+	Popen(['main.bat', d['title'], keys[0], mpd, token, f'{time_ns()}'[:11]])
 	start_response('200 OK', [
 		('Content-type', 'text/plain; charset=utf-8'),
 		('Access-Control-Allow-Origin', env.get('HTTP_ORIGIN'))
