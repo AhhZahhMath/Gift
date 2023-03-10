@@ -2,6 +2,9 @@
 MPD、License URLとヘッダ、PSSHをサーバーに送信するChrome用拡張機能。そしてデータを受信するためのローカルサーバーです。GYAO!でのみ動作します。
 
 
+## 更新履歴
+[最終更新: 2023-03-10 18:00](/CHANGELOG.md)
+
 ## なにができますか？
 [こういうこと](https://ssbsblg.blogspot.com/2023/03/go-ahead.html)です。
 
