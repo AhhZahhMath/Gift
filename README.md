@@ -3,7 +3,7 @@ MPD、License URLとヘッダ、PSSHをサーバーに送信するChrome用拡�
 
 
 ## 更新履歴
-[最終更新: 2023-03-10 18:00](/CHANGELOG.md)
+[最終更新: 2023-03-11 13:30](/CHANGELOG.md)
 
 ## なにができますか？
 [こういうこと](https://ssbsblg.blogspot.com/2023/03/go-ahead.html)です。
