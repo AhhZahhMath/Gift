@@ -66,7 +66,7 @@ def WV_Function(headers, pssh, lic_url):
 
 - 8000番ポートを使用します。  
 もしも使用中の場合は変更することも可能です。  
-server.py の最終行、background.js の30行目に該当の数値があります。
+server.py の最終行、background.js の33行目に該当の数値があります。
 
 
 ## 作った人
