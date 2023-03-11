@@ -1,9 +1,12 @@
 (()=>{
 	let through = [];
-	let bool = true;
+	let buttonEnabled = [];
 	const colors = {green:'#05E35E',red:'#E2041B',blue:'#058AE3',gray:'#808080',black:'#000000'};
-	const timer = (ms)=>{
-		chrome.alarms.create({when: Date.now() + ms});
+	const buttonState = (bool, tabId)=>{
+		bool ? buttonEnabled.push(tabId) : (buttonEnabled = buttonEnabled.filter(v=>v !== tabId));
+	};
+	const timer = (ms, tabId)=>{
+		chrome.alarms.create(tabId + '', {when: Date.now() + ms});
 	};
 	const joinHeaders = (headers)=>{
 		headers = headers.filter(v=>!v.name.includes('sec-ch-ua'))
@@ -58,8 +61,9 @@
 			console.log(changes);
 			(async()=>{
 				const obj = await chrome.storage.local.get([`${tabId}__headers`,`${tabId}__cenc`,`${tabId}__pssh`,`${tabId}__dash`,`${tabId}__title`]);
-				if(arr[0][0].includes('__pssh')) {
+				if(arr[0][0].includes('__pssh')) {console.log('a');
 					through.push(tabId);
+					buttonState(true, tabId);
 					chrome.action.setBadgeBackgroundColor({color:colors.blue,tabId:tabId});
 					console.log(`[Finish] ${obj[`${tabId}__title`]}`);
 					return;
@@ -86,6 +90,8 @@
 						await chrome.storage.local.remove(arr[i]);
 					}
 					through = through.filter(v=>v !== tabId);
+					buttonEnabled = buttonEnabled.filter(v=>v !== tabId);
+					buttonState(false, tabId);
 					chrome.action.setBadgeText({text:' ',tabId:tabId});
 					if(!tab.title.includes('ページが見つかりませんでした')) {
 						console.log(`[Start] ${tab.title}`);
@@ -143,14 +149,14 @@
 			})();
 		}
 	};
-	const alarmsOnAlarmCallback = ()=>{
-		bool = true;
+	const alarmsOnAlarmCallback = (alarm)=>{
+		buttonState(true, alarm.name - 0);
 	};
 	const actionOnClickedCallback = (tab)=>{
-		bool && (async()=>{
-			bool = false;
+		buttonEnabled.includes(tab.id) && (async()=>{
+			buttonState(false, tab.id);
 			await postData(tab.id);
-			timer(5000);
+			timer(2000, tab.id);
 		})();
 	};
 	const runtimeOnCallback = ()=>{
