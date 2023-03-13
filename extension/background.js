@@ -61,7 +61,7 @@
 			console.log(changes);
 			(async()=>{
 				const obj = await chrome.storage.local.get([`${tabId}__headers`,`${tabId}__cenc`,`${tabId}__pssh`,`${tabId}__dash`,`${tabId}__title`]);
-				if(arr[0][0].includes('__pssh')) {console.log('a');
+				if(arr[0][0].includes('__pssh')) {
 					through.push(tabId);
 					buttonState(true, tabId);
 					chrome.action.setBadgeBackgroundColor({color:colors.blue,tabId:tabId});
